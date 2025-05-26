@@ -10,12 +10,13 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
+import os
+import mongoengine
 from pathlib import Path
 from datetime import timedelta
-import os
 from dotenv import load_dotenv
 
-load_dotenv
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -30,7 +31,11 @@ SECRET_KEY = 'django-insecure-=cldztbc4jg&xl0!x673!*v2_=p$$eu)=7*f#d0#zs$44xx-h^
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
+ALLOWED_HOSTS = [
+    '127.0.0.1', 
+    '.vercel.app',
+    '.now.sh'
+]
 
 
 # Application definition
@@ -42,11 +47,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'shoppit',
+    'shoppit',  # Your app name
     'core',# Your app name
     'corsheaders',  # If you're using CORS headers
-    'rest_framework', 
-    'rest_framework_simplejwt'# If you're using Django REST Framework 
+    'rest_framework',  # If you're using Django REST Framework
+    'rest_framework_simplejwt',# If you're using Django REST Framework 
+    'mongoengine',  # If you're using MongoDB
 ]
 
 MIDDLEWARE = [
@@ -79,7 +85,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'api.wsgi.app'
+WSGI_APPLICATION = 'api.wsgi.application'
 
 
 # Database
@@ -87,12 +93,35 @@ WSGI_APPLICATION = 'api.wsgi.app'
 # Note: Django modules for using databases are not support in serverless
 # environments like Vercel. You can use a database over HTTP, hosted elsewhere.
 
+MONGO_URI = os.environ.get('MONGO_URI')
+MONGO_DB_NAME = os.environ.get('MONGO_DB_NAME', 'mydjangoapp')
+
+# Connect to MongoDB
+if MONGO_URI:
+    try:
+        mongoengine.connect(
+            db=MONGO_DB_NAME,
+            host=MONGO_URI,
+            alias='default'
+        )
+        print(f"Connected to MongoDB: {MONGO_DB_NAME}")
+    except Exception as e:
+        print(f"MongoDB connection failed: {e}")
+else:
+    print("MONGO_URI not found in environment variables")
+
+# Disable Django's default database (we're using MongoDB)
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# Session engine for MongoDB
+# SESSION_ENGINE = 'mongoengine.django.sessions'
+# Use default Django session engine
+SESSION_ENGINE = 'django.contrib.sessions.backends.db'
 
 
 # Password validation
@@ -126,38 +155,50 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/4.1/howto/static-files/
-
-STATIC_URL = 'static/'
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
-MEDIA_URL = '/img/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Konfigurasi STORAGES yang lengkap
-STORAGES = {
-    "default": {
-        "BACKEND": "django.core.files.storage.FileSystemStorage",
-        "OPTIONS": {
-            "location": BASE_DIR / "media",
-            "base_url": "/img/",
+# Default primary key field type
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# MongoDB specific settings
+MONGODB_SETTINGS = {
+    'host': MONGO_URI,
+    'db': MONGO_DB_NAME,
+}
+
+# CORS settings (optional, for API)
+CORS_ALLOW_ALL_ORIGINS = True
+
+# Logging (optional, for debugging)
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'handlers': {
+        'console': {
+            'class': 'logging.StreamHandler',
         },
     },
-    "staticfiles": {
-        "BACKEND": "django.contrib.staticfiles.storage.StaticFilesStorage",
-        "OPTIONS": {
-            "location": BASE_DIR / "staticfiles",
+    'root': {
+        'handlers': ['console'],
+        'level': 'INFO',
+    },
+    'loggers': {
+        'mongoengine': {
+            'handlers': ['console'],
+            'level': 'DEBUG',
+            'propagate': False,
         },
     },
 }
 
-STATIC_ROOT = BASE_DIR / "staticfiles"
-MEDIA_ROOT = BASE_DIR / 'media'
 
 AUTH_USER_MODEL = 'core.CustomUser'
 
