@@ -3,6 +3,11 @@ from django.utils.text import slugify
 from django.conf import settings
 
 
+# Model-model ini tidak lagi digunakan untuk data utama,
+# silakan gunakan shoppit/mongo_models.py untuk semua operasi data utama (Product, Cart, CartItem, Transaction)
+# Model ini hanya dipertahankan jika Anda masih butuh admin atau migrasi data lama.
+
+
 class Product(models.Model):
     CATEGORY_CHOICES = [
         ('SP', 'Supplement'),
