@@ -1,0 +1,170 @@
+[
+  {
+    "model": "shoppit.product",
+    "pk": 1,
+    "fields": {
+      "name": "Spirulina",
+      "slug": "spirulina",
+      "image": "spirulina.png",
+      "description": "Suplemen kesehatan Spirulina.",
+      "price": 120000,
+      "category": "SP"
+    }
+  },
+  {
+    "model": "shoppit.product",
+    "pk": 2,
+    "fields": {
+      "name": "Nutrient Calsium",
+      "slug": "nutrient-calsium",
+      "image": "nutrient-calsium.png",
+      "description": "Kalsium alami untuk tulang.",
+      "price": 95000,
+      "category": "SP"
+    }
+  },
+  {
+    "model": "shoppit.product",
+    "pk": 3,
+    "fields": {
+      "name": "Tea",
+      "slug": "tea",
+      "image": "tea.png",
+      "description": "Teh herbal kesehatan.",
+      "price": 80000,
+      "category": "ETC"
+    }
+  },
+  {
+    "model": "shoppit.product",
+    "pk": 4,
+    "fields": {
+      "name": "Calsium",
+      "slug": "calsium",
+      "image": "calsium.png",
+      "description": "Calsium untuk kesehatan tulang.",
+      "price": 90000,
+      "category": "SP"
+    }
+  },
+  {
+    "model": "shoppit.product",
+    "pk": 5,
+    "fields": {
+      "name": "Celles Tiane Cleanser",
+      "slug": "celles-tiane-cleanser",
+      "image": "Celles-Tiane-CLEANSER1x.jpg",
+      "description": "Pembersih wajah alami.",
+      "price": 110000,
+      "category": "HB"
+    }
+  },
+  {
+    "model": "shoppit.product",
+    "pk": 6,
+    "fields": {
+      "name": "Chitosan",
+      "slug": "chitosan",
+      "image": "chitosan.jpg",
+      "description": "Chitosan untuk kesehatan pencernaan.",
+      "price": 105000,
+      "category": "SP"
+    }
+  },
+  {
+    "model": "shoppit.product",
+    "pk": 7,
+    "fields": {
+      "name": "Cilvaris Apparatus",
+      "slug": "cilvaris-apparatus",
+      "image": "CILVARIS-Apparatus31x.jpg",
+      "description": "Alat kesehatan Cilvaris.",
+      "price": 250000,
+      "category": "ETC"
+    }
+  },
+  {
+    "model": "shoppit.product",
+    "pk": 8,
+    "fields": {
+      "name": "Glusamin",
+      "slug": "glusamin",
+      "image": "glusamin.png",
+      "description": "Glusamin untuk sendi.",
+      "price": 130000,
+      "category": "SP"
+    }
+  },
+  {
+    "model": "shoppit.product",
+    "pk": 9,
+    "fields": {
+      "name": "Grape",
+      "slug": "grape",
+      "image": "grape.png",
+      "description": "Ekstrak anggur.",
+      "price": 85000,
+      "category": "SP"
+    }
+  },
+  {
+    "model": "shoppit.product",
+    "pk": 10,
+    "fields": {
+      "name": "MHA2",
+      "slug": "mha2",
+      "image": "MHA21x.png",
+      "description": "Suplemen kesehatan MHA2.",
+      "price": 140000,
+      "category": "SP"
+    }
+  },
+  {
+    "model": "shoppit.product",
+    "pk": 11,
+    "fields": {
+      "name": "Renuves",
+      "slug": "renuves",
+      "image": "renuves.jpg",
+      "description": "Renuves untuk kecantikan.",
+      "price": 160000,
+      "category": "HB"
+    }
+  },
+  {
+    "model": "shoppit.product",
+    "pk": 12,
+    "fields": {
+      "name": "Vitaline",
+      "slug": "vitaline",
+      "image": "vitaline.png",
+      "description": "Suplemen Vitaline.",
+      "price": 125000,
+      "category": "SP"
+    }
+  },
+  {
+    "model": "shoppit.product",
+    "pk": 13,
+    "fields": {
+      "name": "Zinc",
+      "slug": "zinc",
+      "image": "zinc.png",
+      "description": "Suplemen Zinc.",
+      "price": 70000,
+      "category": "SP"
+    }
+  },
+  {
+    "model": "shoppit.product",
+    "pk": 14,
+    "fields": {
+      "name": "Za9yalcygb2tsxzgoezeqvqrkqc0mxgayfwi5mmg",
+      "slug": "za9yalcygb2tsxzgoezeqvqrkqc0mxgayfwi5mmg",
+      "image": "za9yalcygb2tsxzgoezeqvqrkqc0mxgayfwi5mmg_1_1x.png",
+      "description": "Produk random.",
+      "price": 50000,
+      "category": "ETC"
+    }
+  }
+]
