@@ -158,13 +158,14 @@
   {
     "model": "shoppit.product",
     "pk": 14,
-    "fields": {
-      "name": "Za9yalcygb2tsxzgoezeqvqrkqc0mxgayfwi5mmg",
-      "slug": "za9yalcygb2tsxzgoezeqvqrkqc0mxgayfwi5mmg",
-      "image": "za9yalcygb2tsxzgoezeqvqrkqc0mxgayfwi5mmg_1_1x.png",
-      "description": "Produk random.",
-      "price": 50000,
-      "category": "ETC"
+    "fields":  {
+        "id": "14",
+        "name": "Tianshi Jiang Zhi Tea",
+        "slug": "tianshi-jiang-zhi-tea",
+        "image": "tea.png",
+        "description": "Tianshi Jiang Zhi Tea mengandung Green Tea 255 mg, Folium Nelumbinis 390 mg, Herba Gynostemma Pentaphylum 390 mg, Radix Polygoni Multitlori 255 mg dan Semen Cassiae 210 mg yang bermanfaat untuk membantu mengurangi lemak darah.\r\nIsi: 1,5g x 40 bungkus\r\nAnjuran pakai: 3 kali sehari, tiap kali 1-2 bungkus. Diseduh dengan air panas selama 10 menit lalu diminum. Bisa diseduh kembali berkali-kali.\r\nPeringatan & Perhatian:\r\nTidak cocok untuk anak-anak.",
+        "price": 170000.0,
+        "category": "SP"
     }
   }
 ]
