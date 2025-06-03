@@ -3,7 +3,6 @@ from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.permissions import IsAuthenticated
 from django.conf import settings
-from .mongo_models import ProductDoc, CartDoc, CartItemDoc, TransactionDoc
 from .serializers import (
     ProductsSerializer,
     DetailedProductSerializer,
@@ -12,6 +11,7 @@ from .serializers import (
     CartItemSerializer,
     UserSerializer,
 )
+from .models import Product, Cart, CartItem  # Ganti ke model Django ORM
 
 BASE_URL = settings.REACT_BASE_URL
 
@@ -20,7 +20,7 @@ def products(request):
     """
     Retrieve all available products.
     """
-    queryset = ProductDoc.objects.all()
+    queryset = Product.objects.all()
     serializer = ProductsSerializer(queryset, many=True, context={"request": request})
     return Response(serializer.data)
 
@@ -30,7 +30,7 @@ def product_detail(request, slug):
     """
     Retrieve detailed product information by slug.
     """
-    product = ProductDoc.objects(slug=slug).first()
+    product = Product.objects.filter(slug=slug).first()
     if not product:
         return Response({"error": "Product not found."}, status=status.HTTP_404_NOT_FOUND)
     serializer = DetailedProductSerializer(product, context={"request": request})
@@ -54,19 +54,19 @@ def add_items(request):
                 status=status.HTTP_400_BAD_REQUEST
             )
 
-        cart = CartDoc.objects(cart_code=cart_code).first()
+        cart = Cart.objects.filter(cart_code=cart_code).first()
         if not cart:
-            cart = CartDoc(cart_code=cart_code)
+            cart = Cart(cart_code=cart_code)
             cart.save()
 
-        product = ProductDoc.objects(id=product_id).first()
+        product = Product.objects.filter(id=product_id).first()
         if not product:
             return Response({"error": "Product not found."}, status=status.HTTP_404_NOT_FOUND)
 
-        cartitem = CartItemDoc.objects(cart=cart, product=product).first()
+        cartitem = CartItem.objects.filter(cart=cart, product=product).first()
         created = False
         if not cartitem:
-            cartitem = CartItemDoc(cart=cart, product=product, quantity=quantity)
+            cartitem = CartItem(cart=cart, product=product, quantity=quantity)
             created = True
         else:
             cartitem.quantity = quantity
@@ -99,11 +99,11 @@ def delete_items(request):
         return Response({"error": "cart_code and product_id are required."}, status=status.HTTP_400_BAD_REQUEST)
 
     try:
-        cart = CartDoc.objects(cart_code=cart_code).first()
-        product = ProductDoc.objects(id=product_id).first()
+        cart = Cart.objects.filter(cart_code=cart_code).first()
+        product = Product.objects.filter(id=product_id).first()
         if not cart or not product:
             return Response({"error": "Cart or Product not found."}, status=status.HTTP_404_NOT_FOUND)
-        cartitem = CartItemDoc.objects(cart=cart, product=product).first()
+        cartitem = CartItem.objects.filter(cart=cart, product=product).first()
         if not cartitem:
             return Response({"error": "Cart item not found."}, status=status.HTTP_404_NOT_FOUND)
         cartitem.delete()
@@ -125,12 +125,12 @@ def product_in_cart(request):
     if not cart_code or not product_id:
         return Response({"error": "cart_code and product_id are required query parameters."}, status=status.HTTP_400_BAD_REQUEST)
 
-    cart = CartDoc.objects(cart_code=cart_code).first()
-    product = ProductDoc.objects(id=product_id).first()
+    cart = Cart.objects.filter(cart_code=cart_code).first()
+    product = Product.objects.filter(id=product_id).first()
 
     exists = False
     if cart and product:
-        exists = CartItemDoc.objects(cart=cart, product=product).first() is not None
+        exists = CartItem.objects.filter(cart=cart, product=product).first() is not None
     return Response({"product_in_cart": exists})
 
 
@@ -145,11 +145,11 @@ def get_cart_stat(request):
     if not cart_code:
         return Response({"error": "cart_code is required."}, status=status.HTTP_400_BAD_REQUEST)
 
-    cart = CartDoc.objects(cart_code=cart_code).first()  # Hilangkan paid=True agar cart apapun bisa diambil
+    cart = Cart.objects.filter(cart_code=cart_code).first()  # Hilangkan paid=True agar cart apapun bisa diambil
     if not cart:
         return Response({"error": "Cart not found."}, status=status.HTTP_404_NOT_FOUND)
-    items = CartItemDoc.objects(cart=cart)
-    cart.items = items
+    items = CartItem.objects.filter(cart=cart)
+    cart.items.set(items)  # Use set() instead of direct assignment
     serializer = SimpleCartSerializer(cart)
     return Response(serializer.data)
 
@@ -165,11 +165,11 @@ def get_cart(request):
     if not cart_code:
         return Response({"error": "cart_code is required."}, status=status.HTTP_400_BAD_REQUEST)
 
-    cart = CartDoc.objects(cart_code=cart_code).first()  # Hapus paid=True agar cart yang belum dibayar bisa ditemukan
+    cart = Cart.objects.filter(cart_code=cart_code).first()  # Hapus paid=True agar cart yang belum dibayar bisa ditemukan
     if not cart:
         return Response({"error": "Cart not found."}, status=status.HTTP_404_NOT_FOUND)
-    items = CartItemDoc.objects(cart=cart)
-    cart.items = items
+    items = CartItem.objects.filter(cart=cart)
+    cart.items.set(items)  # Use set() instead of direct assignment
     serializer = CartSerializer(cart)
     return Response(serializer.data)
 
@@ -187,7 +187,7 @@ def update_quantity(request):
         if quantity <= 0:
             return Response({"error": "Quantity must be greater than 0."}, status=status.HTTP_400_BAD_REQUEST)
 
-        cartitem = CartItemDoc.objects(id=item_id).first()
+        cartitem = CartItem.objects.filter(id=item_id).first()
         if not cartitem:
             return Response({"error": "Cart item not found."}, status=status.HTTP_404_NOT_FOUND)
         cartitem.quantity = quantity

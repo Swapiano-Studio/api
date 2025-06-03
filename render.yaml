@@ -1,5 +1,5 @@
-# Render.com deployment configuration for Django + MongoDB
-# 1. Pastikan requirements.txt sudah lengkap (Django, djangorestframework, mongoengine, certifi, python-dotenv, dll)
+# Render.com deployment configuration for Django
+# 1. Pastikan requirements.txt sudah lengkap (Django, djangorestframework, certifi, python-dotenv, dll)
 # 2. Pastikan .env sudah diisi di dashboard Render (bukan di repo, kecuali untuk testing lokal)
 # 3. Gunakan start command berikut di Render:
 #

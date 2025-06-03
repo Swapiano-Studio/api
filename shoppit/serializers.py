@@ -1,5 +1,4 @@
 from rest_framework import serializers
-from .mongo_models import ProductDoc, CartDoc, CartItemDoc
 from django.contrib.auth import get_user_model
 from django.conf import settings
 
@@ -14,14 +13,22 @@ class ProductsSerializer(serializers.Serializer):
 
     def get_image(self, obj):
         request = self.context.get('request')
-        # Clean up image path: remove any leading 'img/', '/img/', or 'img\\'
-        image_path = obj.image or ''
-        image_path = image_path.replace('\\', '/').lstrip('/')
-        if image_path.lower().startswith('img/'):
-            image_path = image_path[4:]
+        image_field = obj.image
+        image_path = ''
+        if image_field:
+            if hasattr(image_field, 'url'):
+                image_path = image_field.url
+            else:
+                image_path = str(image_field)
+            image_path = image_path.replace('\\', '/').lstrip('/')
+            if image_path.lower().startswith('img/'):
+                image_path = image_path[4:]
+        # Avoid double 'img/img/'
+        final_path = settings.MEDIA_URL + image_path if image_path else ''
+        final_path = final_path.replace('/img/img/', '/img/')
         if request:
-            return request.build_absolute_uri(settings.MEDIA_URL + image_path)
-        return settings.MEDIA_URL + image_path
+            return request.build_absolute_uri(final_path)
+        return final_path
 
 class DetailedProductSerializer(serializers.Serializer):
     id = serializers.CharField()
@@ -34,18 +41,31 @@ class DetailedProductSerializer(serializers.Serializer):
 
     def get_image(self, obj):
         request = self.context.get('request')
-        # Clean up image path: remove any leading 'img/', '/img/', or 'img\\'
-        image_path = obj.image or ''
-        image_path = image_path.replace('\\', '/').lstrip('/')
-        if image_path.lower().startswith('img/'):
-            image_path = image_path[4:]
+        image_field = obj.image
+        image_path = ''
+        if image_field:
+            if hasattr(image_field, 'url'):
+                image_path = image_field.url
+            else:
+                image_path = str(image_field)
+            image_path = image_path.replace('\\', '/').lstrip('/')
+            # Remove leading 'img/' if present
+            if image_path.lower().startswith('img/'):
+                image_path = image_path[4:]
+        # Avoid double 'img/img/'
+        final_path = settings.MEDIA_URL + image_path if image_path else ''
+        final_path = final_path.replace('/img/img/', '/img/')
         if request:
-            return request.build_absolute_uri(settings.MEDIA_URL + image_path)
-        return settings.MEDIA_URL + image_path
+            return request.build_absolute_uri(final_path)
+        return final_path
 
     def get_similiar_products(self, obj):
-        products = ProductDoc.objects(category=obj.category, id__ne=obj.id)[:5]
-        return ProductsSerializer(products, many=True, context=self.context).data
+        # Find up to 5 other products in the same category, excluding the current product
+        if not obj.category:
+            return []
+        from .models import Product
+        similiar = Product.objects.filter(category=obj.category).exclude(id=obj.id)
+        return ProductsSerializer(similiar, many=True, context=self.context).data
 
 class CartItemSerializer(serializers.Serializer):
     id = serializers.CharField()
@@ -66,10 +86,11 @@ class CartSerializer(serializers.Serializer):
     modified_at = serializers.DateTimeField()
 
     def get_sum_total(self, obj):
-        return sum(item.product.price * item.quantity for item in obj.items)
+        # obj.items is a RelatedManager, use .all() to iterate
+        return sum(item.product.price * item.quantity for item in obj.items.all())
 
     def get_num_of_items(self, obj):
-        return sum(item.quantity for item in obj.items)
+        return sum(item.quantity for item in obj.items.all())
 
 class SimpleCartSerializer(serializers.Serializer):
     id = serializers.CharField()
@@ -77,7 +98,7 @@ class SimpleCartSerializer(serializers.Serializer):
     num_of_items = serializers.SerializerMethodField()
 
     def get_num_of_items(self, obj):
-        return sum(item.quantity for item in obj.items)
+        return sum(item.quantity for item in obj.items.all())
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:

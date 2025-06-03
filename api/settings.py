@@ -11,7 +11,6 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 import os
-import mongoengine
 from pathlib import Path
 from datetime import timedelta
 from dotenv import load_dotenv
@@ -30,17 +29,18 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-=cldztbc4jg&xl0!x673!*v2_=p$$eu)=7*f#d0#zs$44xx-h^'
+SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-=cldztbc4jg&xl0!x673!*v2_=p$$eu)=7*f#d0#zs$44xx-h^')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.getenv('RENDER', None) is None  # DEBUG=False if running on Render
 
 ALLOWED_HOSTS = [
+    'localhost',
     '127.0.0.1',
-    'localhost',  # Added for local development
-    '.vercel.app',
-    '.now.sh'
+    'myshop-api-wixh.onrender.com',  # Added for Render deployment
 ]
+if os.getenv('RENDER_EXTERNAL_HOSTNAME'):
+    ALLOWED_HOSTS.append(os.getenv('RENDER_EXTERNAL_HOSTNAME'))
 
 
 # Application definition
@@ -57,7 +57,6 @@ INSTALLED_APPS = [
     'corsheaders',  # If you're using CORS headers
     'rest_framework',  # If you're using Django REST Framework
     'rest_framework_simplejwt',# If you're using Django REST Framework 
-    'mongoengine',  # If you're using MongoDB
 ]
 
 MIDDLEWARE = [
@@ -95,29 +94,19 @@ WSGI_APPLICATION = 'api.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-# Note: Django modules for using databases are not support in serverless
-# environments like Vercel. You can use a database over HTTP, hosted elsewhere.
-
-MONGO_URI = os.environ.get('MONGO_URI')
-MONGO_DB_NAME = os.environ.get('MONGO_DB_NAME', 'tiensapp_db')
-
-# Connect to MongoDB
-if MONGO_URI:
-    try:
-        mongoengine.connect(
-            db=MONGO_DB_NAME,
-            host=MONGO_URI,
-            alias='default'
-        )
-        print(f"Connected to MongoDB: {MONGO_DB_NAME}")
-    except Exception as e:
-        print(f"MongoDB connection failed: {e}")
+if os.getenv('DATABASE_URL'):
+    import dj_database_url
+    DATABASES = {
+        'default': dj_database_url.parse(os.getenv('DATABASE_URL'), conn_max_age=600)
+    }
 else:
-    print("MONGO_URI not found in environment variables")
-
-# Disable Django's default database (we're using MongoDB)
-DATABASES = {}
-
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
+# Note: Django modules for using databases are not support in serverless
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
@@ -160,14 +149,6 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
-# Default primary key field type
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# MongoDB specific settings
-MONGODB_SETTINGS = {
-    'host': MONGO_URI,
-    'db': MONGO_DB_NAME,
-}
 
 # CORS settings (optional, for API)
 CORS_ALLOW_ALL_ORIGINS = True
@@ -184,13 +165,6 @@ LOGGING = {
     'root': {
         'handlers': ['console'],
         'level': 'INFO',
-    },
-    'loggers': {
-        'mongoengine': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-            'propagate': False,
-        },
     },
 }
 
