@@ -1,0 +1,32 @@
+# Render.com deployment configuration for Django + MongoDB
+# 1. Pastikan requirements.txt sudah lengkap (Django, djangorestframework, mongoengine, certifi, python-dotenv, dll)
+# 2. Pastikan .env sudah diisi di dashboard Render (bukan di repo, kecuali untuk testing lokal)
+# 3. Gunakan start command berikut di Render:
+#
+#   gunicorn api.wsgi:application --timeout 600
+#
+# 4. Pastikan direktori kerja (Root Directory) di Render adalah folder api
+# 5. Untuk static/media, gunakan Django WhiteNoise atau Render disk (atau S3 untuk production)
+
+# render.yaml
+services:
+  - type: web
+    name: tiens-backend
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn api.wsgi:application --timeout 600"
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: api.settings
+      - key: PYTHONUNBUFFERED
+        value: 1
+    autoDeploy: true
+    # Root directory for Django project
+    rootDir: .
+    # Gunakan disk untuk static/media jika perlu
+    # disks:
+    #   - name: staticfiles
+    #     mountPath: /staticfiles
+    #   - name: mediafiles
+    #     mountPath: /img
