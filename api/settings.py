@@ -31,8 +31,6 @@ SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', 'django-insecure-=cldztbc4jg&xl0!x67
 DEBUG = os.getenv('RENDER', None) is None  # DEBUG=False if running on Render
 
 ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
     'myshop-api-wixh.onrender.com',  # Added for Render deployment
 ]
 
