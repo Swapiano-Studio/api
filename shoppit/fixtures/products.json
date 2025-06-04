@@ -1,128 +1,170 @@
 [
-    {
-        "id": "1",
-        "name": "Tianshi Calcium Powder for Children",
-        "slug": "tianshi-calcium-powder-for-children",
-        "image": "calsium.png",
-        "description": "Tianshi Calcium Powder for Children mengandung lsomaltooligosakarida 1500 mg, Whole Milk Powder 5300 mg, Zymolitic Bone Calcium Powder 2200 mg, Egg Yolk Powder 300 mg, Retinol 106.9 mcg, Vitamin D 2.7 mcg, Vitamin C 6.06 mg, Lacti-ferrous 5.15 mg, Lacti-zinc 6.76 mg, Taurine 3.06 mg, Dextrin 23.86 mg, Non Dairy Creamer 500 mg, Calcium Asetate 120 mg dan Pemanis Sodium Saccharin 35 mg untuk memelihara kesehatan tulang.\r\nIsi: 10g x 10 bungkus\r\nAnjuran pakai: Setiap hari 1-2 kali, setiap kali 1 bungkus.\r\nPeringatan & Perhatian:\r\nMengandung pemanis buatan Sodium Saccharine. Tidak boleh digunakan untuk anak di bawah 1 tahun.",
-        "price": 315000.0,
-        "category": "SP"
-    },
-    {
-        "id": "2",
-        "name": "Tianshi Renuves Capsules",
-        "slug": "tianshi-renuves-capsules",
-        "image": "renuves.jpg",
-        "description": "Tianshi Renuves Capsules mengandung Bubuk Wortel 218.75 mg, Polyphenol Teh 6.25 mg, Herba Gynostemma Pentaphyllum Extract 18.75 mg, Vitamin C 5 mg dan Magnesium Stearat 1.25mg yang berfungsi sebagai suplemen untuk membantu memelihara kesehatan tubuh.\r\nIsi: 0,3g x 150 kapsul\r\nAnjuran Pakai: 3 kali sehari, tiap kali 4 kapsul, diminum dengan air hangat.\r\nPeringatan & Perhatian:\r\n- Produk ini tidak bisa digunakan sebagai pengganti obat. \r\n- Produk ini tidak berfungsi mensuplai oksigen.",
-        "price": 632000.0,
-        "category": "SP"
-    },
-    {
-        "id": "3",
-        "name": "Tianshi Chitin Chitosan",
-        "slug": "tianshi-chitin-chitosan",
-        "image": "chitosan.jpg",
-        "description": "Tianshi Chitin Chitosan ialah suplemen mengandung serat yang terbuat dari Chitosan 150 mg.\r\nIsi: 0,15g x 100 kapsul\r\nAnjuran Pakai: 2 kali sehari, tiap kali 2 kapsul, diminum dengan air hangat\r\nPeringatan & Perhatian:\r\nHati-hati bagi yang alergi terhadap makanan laut. Mempengaruhi absorbsi bahan lain termasuk vitamin A, D, E dan K sehingga dianjurkan diberikan interval waktu 2-3 jam antara pemberian. Hindari penggunaan pada anak-anak, wanita hamil dan menyusui. Hindari penggunaan bersama obat pengencer darah seperti warfarin,heparin, dan aspirin.",
-        "price": 535000.0,
-        "category": "SP"
-    },
-    {
-        "id": "4",
-        "name": "Glucosamine",
-        "slug": "glucosamine",
-        "image": "glusamin.png",
-        "description": "Glucosamine mengandung Glucosamine 500 mg yang diperoleh dari udang. Manfaat Glucosamine adalah untuk membantu memelihara kesehatan persendian.\r\nIsi: 500mg x 60 kapsul\r\nAnjuran Pakai: 2x1 kapsul perhari sesudah makan\r\nPeringatan & Perhatian:\r\nJauhkan dari jangkauan anak-anak. Hati-hati pada penderita yang hipersensitif terhadap glukosamine.",
-        "price": 284000.0,
-        "category": "SP"
-    },
-    {
-        "id": "5",
-        "name": "Tianshi Grape Extract Capsules",
-        "slug": "tianshi-grape-extract-capsules",
-        "image": "grape.png",
-        "description": "Tianshi Grape Extract Capsules mengandung Grape Seed Extract 54.25 mg, Oligosakarida 294 mg dan Vitamin C 0.35 mg yang bermanfaat sebagai suplemen untuk membantu mengurangi lemak.\r\n\r\n\r\nIsi: 0,35g x 60 kapsul\r\n\r\nAnjuran Pakai: 3 kali sehari, tiap kali 2 kapsul.\r\n\r\nPeringatan & Perhatian:\r\nJangan diberikan kepada orang yang hipersensitif terhadap salah satu bahan serta orang yang mengalami gangguan dan iritasi saluran cerna.",
-        "price": 708000.0,
-        "category": "SP"
-    },
-    {
-        "id": "6",
-        "name": "Spirulina",
-        "slug": "spirulina",
-        "image": "spirulina.png",
-        "description": "Spirulina mengandung Anthospira sp.500 mg yang bermanfaat untuk memelihara kesehatan dan membantu memelihara daya tahan tubuh.\r\nIsi: 500mg x 100 kapsul\r\nAnjuran pakai: 3x4 kapsul per hari, sesudah makan dengan air hangat.\r\nPeringatan & Perhatian:\r\nBaca Aturan Pakai",
-        "price": 401000.0,
-        "category": "SP"
-    },
-    {
-        "id": "7",
-        "name": "Tianshi Vitaline",
-        "slug": "tianshi-vitaline",
-        "image": "vitaline.png",
-        "description": "Tianshi Vitaline mengandung Minyak Kecambah Gandum 600 mg, Lechitin 199.6 mg dan B-caroten 0,4 mg yang bermanfaat untuk membantu memelihara kesehatan.\r\nIsi: 0,8g x 30 kapsul lunak\r\nAnjuran pakai: 2-3 kali sehari, sekali minum 1 kapsul lunak.\r\nPeringatan & Perhatian:\r\nBaca Aturan Pakai",
-        "price": 404000.0,
-        "category": "SP"
-    },
-    {
-        "id": "8",
-        "name": "Tianshi Zinc Capsules",
-        "slug": "tianshi-zinc-capsules",
-        "image": "zinc.png",
-        "description": "Tianshi Zinc Capsules mengandung Egg Protein Powder 50 mg, Zinc Lactate 4 mg, Mg. Stearate 1 mg, Glucose 143 mg, Talc 2 mg yang berman­faat sebagai suplementasi zinc.\r\nIsi :  0,2g x 60 kapsul\r\nAnjuran Pakai: 2 kali sehari, diminum dengan air hangat. Umur 3-10 tahun : tiap kali 2 kapsul. Di atas 10 tahun : tiap kali 4 kapsul\r\nPeringatan & Perhatian: \r\n-Produk ini tidak bisa digunakan sebagai pengganti obat. \r\n-Disarankan tidak menggunakan lebih dari dosis yang dianjurkan serta tidak digunakan bersamaan dengan produk sejenis lainnya.",
-        "price": 176000.0,
-        "category": "SP"
-    },
-    {
-        "id": "9",
-        "name": "Hydra Cleanser",
-        "slug": "hydra-cleanser",
-        "image": "Celles-Tiane-CLEANSER1x.jpg",
-        "description": "Pembersih wajah yang terinspirasi dari dan mengandung ekstrak fermentasi ragi alami, 15 jenis asam amino, ekstrak dan. Menjadikan wajah bersih, cerah dan halus setelah penggunaan. Tekstur busa lembutnya dapat membersihkan kotoran dan sisa make-up di pori-pori wajah secara menyeluruh. Produk ini dapat digunakan untuk semua jenis kulit.\r\nIsi: 100 ml\r\nAnjuran Pakai: Lihat kemasan\r\nPeringatan & Perhatian:\r\nProduk ini hanya untuk penggunaan kulit luar. Jika terjadi iritasi atau alergi, segera hentikan penggunaan. Simpan di tempat yang sejuk dan kering, hindari paparan sinar matahari langsung.",
-        "price": 176000.0,
-        "category": "SC"
-    },
-    {
-        "id": "10",
-        "name": "Multifunctional HeadCare Apparatus",
-        "slug": "multifunctional-headcare-apparatus",
-        "image": "MHA21x.png",
-        "description": "Alat pijat pintar yang menggabungkan teknologi kesehatan dan kecantikan ini dapat membantu Anda meredakan stress baik secara fisik maupun mental. Gabungan laser kesehatan dan getaran pada titik akupuntur dari MHCA dapat mengurangi migrain, meningkatkan sirkulasi darah kepala dan memberikan kenyamanan pijatan serta meredakan ketegangan otak selama penggunaan.",
-        "price": 2835000.0,
-        "category": "HB"
-    },
-    {
-        "id": "11",
-        "name": "La Beaute Secrete Portable Apparatus",
-        "slug": "la-beaute-secrete-portable-apparatus",
-        "image": "CILVARIS-Apparatus31x.jpg",
-        "description": "Teknologi terkini yang memungkinkan Anda mempunyai klinik kecantikan pribadi. CILVARIS dilengkapi dengan teknologi RF, EMS, CV, dan mode otomatis yang dapat membantu melawan penuaan dini, menyamarkan kerutan, mengencangkan serta menutrisi kulit Anda. Miliki solusi perawatan kulit indah dan sehat dalam satu genggaman, dimanapun dan kapanpun.",
-        "price": 4246000.0,
-        "category": "HB"
-    },
-    {
-        "id": "12",
-        "name": "Tianshi Shutang Calcium Powder",
-        "slug": "tianshi-shutang-calcium-powder",
-        "image": "za9yalcygb2tsxzgoezeqvqrkqc0mxgayfwi5mmg_1_1x.png",
-        "description": "Tianshi Shutang Calcium Powder mengandung lsomaltooligosakarida 1250 mg, Defatted Milk Powder 2500 mg, Zymolitic Bone Calcium Powder 2100 mg, Polydextrose 2000 mg, Pumpkin Powder 1700 mg, Cocoa 200 mg, Calcium Asetate 180 mg, Pemanis Sodium Saccharin 35 mg, Vitamin A 123.6 mcg, Vitamin D 2.7 mcg, Vitamin C 7.6 mg, Vitamin B1 0.19 mg, Vitamin B2 0.15 mg dan Dekstrin 26.93 mg untuk memelihara kesehatan tulang.\r\nIsi: 10g x 10 bungkus\r\nAnjuran pakai: Setiap hari 1-2 kali, setiap kali 1 bungkus.\r\nPeringatan & Perhatian:\r\nMengandung pemanis buatan Sodium Saccharine. Tidak boleh digunakan untuk anak di bawah 1 tahun.",
-        "price": 365000.0,
-        "category": null
-    },
-    {
-        "id": "13",
-        "name": "TIENSHI Nutrient Calcium Powder",
-        "slug": "tienshi-nutrient-calcium-powder",
-        "image": "nutrient-calsium.png",
-        "description": "Mengandung Isomaltooligosakarida 3600 mg, Defatted Milk Powder 3000 mg, Zymolitic Bone Calcium Powder 2400 mg, Vitamin A 123.6 mcg, Vitamin D 2.7 mcg, Vitamin C 7.6 mg, Lacti Ferrous 2.06 mg, Dextrine 35.21 mg, Non Dairy Creamer 500 mg, Cocoa 200 mg dan Calcium Asetate 180 mg untuk kegunaan memelihara kesehatan tulang.\r\nIsi: 10g x 10 bungkus\r\nAnjuran pakai: Setiap hari 1-2 kali, setiap kali 1 bungkus.\r\nPeringatan & Perhatian:\r\n- Mengandung pemanis buatan Sodium Saccharine \r\n- Tidak boleh digunakan untuk anak dibawah 1 tahun",
-        "price": 300000.0,
-        "category": "SP"
-    },
-    {
-        "id": "14",
-        "name": "Tianshi Jiang Zhi Tea",
-        "slug": "tianshi-jiang-zhi-tea",
-        "image": "tea.png",
-        "description": "Tianshi Jiang Zhi Tea mengandung Green Tea 255 mg, Folium Nelumbinis 390 mg, Herba Gynostemma Pentaphylum 390 mg, Radix Polygoni Multitlori 255 mg dan Semen Cassiae 210 mg yang bermanfaat untuk membantu mengurangi lemak darah.\r\nIsi: 1,5g x 40 bungkus\r\nAnjuran pakai: 3 kali sehari, tiap kali 1-2 bungkus. Diseduh dengan air panas selama 10 menit lalu diminum. Bisa diseduh kembali berkali-kali.\r\nPeringatan & Perhatian:\r\nTidak cocok untuk anak-anak.",
-        "price": 170000.0,
-        "category": "SP"
+  {
+    "model": "shoppit.product",
+    "pk": 1,
+    "fields": {
+      "name": "Tianshi Calcium Powder for Children",
+      "slug": "tianshi-calcium-powder-for-children",
+      "image": "calsium.png",
+      "description": "Tianshi Calcium Powder for Children mengandung lsomaltooligosakarida 1500 mg, Whole Milk Powder 5300 mg, Zymolitic Bone Calcium Powder 2200 mg, Egg Yolk Powder 300 mg, Retinol 106.9 mcg, Vitamin D 2.7 mcg, Vitamin C 6.06 mg, Lacti-ferrous 5.15 mg, Lacti-zinc 6.76 mg, Taurine 3.06 mg, Dextrin 23.86 mg, Non Dairy Creamer 500 mg, Calcium Asetate 120 mg dan Pemanis Sodium Saccharin 35 mg untuk memelihara kesehatan tulang.\nIsi: 10g x 10 bungkus\nAnjuran pakai: Setiap hari 1-2 kali, setiap kali 1 bungkus.\nPeringatan & Perhatian:\nMengandung pemanis buatan Sodium Saccharine. Tidak boleh digunakan untuk anak di bawah 1 tahun.",
+      "price": 315000.0,
+      "category": "SP"
     }
+  },
+  {
+    "model": "shoppit.product",
+    "pk": 2,
+    "fields": {
+      "name": "Tianshi Renuves Capsules",
+      "slug": "tianshi-renuves-capsules",
+      "image": "renuves.jpg",
+      "description": "Tianshi Renuves Capsules mengandung Bubuk Wortel 218.75 mg, Polyphenol Teh 6.25 mg, Herba Gynostemma Pentaphyllum Extract 18.75 mg, Vitamin C 5 mg dan Magnesium Stearat 1.25mg yang berfungsi sebagai suplemen untuk membantu memelihara kesehatan tubuh.\nIsi: 0,3g x 150 kapsul\nAnjuran Pakai: 3 kali sehari, tiap kali 4 kapsul, diminum dengan air hangat.\nPeringatan & Perhatian:\n- Produk ini tidak bisa digunakan sebagai pengganti obat. \n- Produk ini tidak berfungsi mensuplai oksigen.",
+      "price": 632000.0,
+      "category": "SP"
+    }
+  },
+  {
+    "model": "shoppit.product",
+    "pk": 3,
+    "fields": {
+      "name": "Tianshi Chitin Chitosan",
+      "slug": "tianshi-chitin-chitosan",
+      "image": "chitosan.jpg",
+      "description": "Tianshi Chitin Chitosan ialah suplemen mengandung serat yang terbuat dari Chitosan 150 mg.\nIsi: 0,15g x 100 kapsul\nAnjuran Pakai: 2 kali sehari, tiap kali 2 kapsul, diminum dengan air hangat\nPeringatan & Perhatian:\nHati-hati bagi yang alergi terhadap makanan laut. Mempengaruhi absorbsi bahan lain termasuk vitamin A, D, E dan K sehingga dianjurkan diberikan interval waktu 2-3 jam antara pemberian. Hindari penggunaan pada anak-anak, wanita hamil dan menyusui. Hindari penggunaan bersama obat pengencer darah seperti warfarin,heparin, dan aspirin.",
+      "price": 535000.0,
+      "category": "SP"
+    }
+  },
+  {
+    "model": "shoppit.product",
+    "pk": 4,
+    "fields": {
+      "name": "Glucosamine",
+      "slug": "glucosamine",
+      "image": "glusamin.png",
+      "description": "Glucosamine mengandung Glucosamine 500 mg yang diperoleh dari udang. Manfaat Glucosamine adalah untuk membantu memelihara kesehatan persendian.\nIsi: 500mg x 60 kapsul\nAnjuran Pakai: 2x1 kapsul perhari sesudah makan\nPeringatan & Perhatian:\nJauhkan dari jangkauan anak-anak. Hati-hati pada penderita yang hipersensitif terhadap glukosamine.",
+      "price": 284000.0,
+      "category": "SP"
+    }
+  },
+  {
+    "model": "shoppit.product",
+    "pk": 5,
+    "fields": {
+      "name": "Tianshi Grape Extract Capsules",
+      "slug": "tianshi-grape-extract-capsules",
+      "image": "grape.png",
+      "description": "Tianshi Grape Extract Capsules mengandung Grape Seed Extract 54.25 mg, Oligosakarida 294 mg dan Vitamin C 0.35 mg yang bermanfaat sebagai suplemen untuk membantu mengurangi lemak.\n\n\nIsi: 0,35g x 60 kapsul\n\nAnjuran Pakai: 3 kali sehari, tiap kali 2 kapsul.\n\nPeringatan & Perhatian:\nJangan diberikan kepada orang yang hipersensitif terhadap salah satu bahan serta orang yang mengalami gangguan dan iritasi saluran cerna.",
+      "price": 708000.0,
+      "category": "SP"
+    }
+  },
+  {
+    "model": "shoppit.product",
+    "pk": 6,
+    "fields": {
+      "name": "Spirulina",
+      "slug": "spirulina",
+      "image": "spirulina.png",
+      "description": "Spirulina mengandung Anthospira sp.500 mg yang bermanfaat untuk memelihara kesehatan dan membantu memelihara daya tahan tubuh.\nIsi: 500mg x 100 kapsul\nAnjuran pakai: 3x4 kapsul per hari, sesudah makan dengan air hangat.\nPeringatan & Perhatian:\nBaca Aturan Pakai",
+      "price": 401000.0,
+      "category": "SP"
+    }
+  },
+  {
+    "model": "shoppit.product",
+    "pk": 7,
+    "fields": {
+      "name": "Tianshi Vitaline",
+      "slug": "tianshi-vitaline",
+      "image": "vitaline.png",
+      "description": "Tianshi Vitaline mengandung Minyak Kecambah Gandum 600 mg, Lechitin 199.6 mg dan B-caroten 0,4 mg yang bermanfaat untuk membantu memelihara kesehatan.\nIsi: 0,8g x 30 kapsul lunak\nAnjuran pakai: 2-3 kali sehari, sekali minum 1 kapsul lunak.\nPeringatan & Perhatian:\nBaca Aturan Pakai",
+      "price": 404000.0,
+      "category": "SP"
+    }
+  },
+  {
+    "model": "shoppit.product",
+    "pk": 8,
+    "fields": {
+      "name": "Tianshi Zinc Capsules",
+      "slug": "tianshi-zinc-capsules",
+      "image": "zinc.png",
+      "description": "Tianshi Zinc Capsules mengandung Egg Protein Powder 50 mg, Zinc Lactate 4 mg, Mg. Stearate 1 mg, Glucose 143 mg, Talc 2 mg yang berman­faat sebagai suplementasi zinc.\nIsi :  0,2g x 60 kapsul\nAnjuran Pakai: 2 kali sehari, diminum dengan air hangat. Umur 3-10 tahun : tiap kali 2 kapsul. Di atas 10 tahun : tiap kali 4 kapsul\nPeringatan & Perhatian: \n-Produk ini tidak bisa digunakan sebagai pengganti obat. \n-Disarankan tidak menggunakan lebih dari dosis yang dianjurkan serta tidak digunakan bersamaan dengan produk sejenis lainnya.",
+      "price": 176000.0,
+      "category": "SP"
+    }
+  },
+  {
+    "model": "shoppit.product",
+    "pk": 9,
+    "fields": {
+      "name": "Hydra Cleanser",
+      "slug": "hydra-cleanser",
+      "image": "Celles-Tiane-CLEANSER1x.jpg",
+      "description": "Pembersih wajah yang terinspirasi dari dan mengandung ekstrak fermentasi ragi alami, 15 jenis asam amino, ekstrak dan. Menjadikan wajah bersih, cerah dan halus setelah penggunaan. Tekstur busa lembutnya dapat membersihkan kotoran dan sisa make-up di pori-pori wajah secara menyeluruh. Produk ini dapat digunakan untuk semua jenis kulit.\nIsi: 100 ml\nAnjuran Pakai: Lihat kemasan\nPeringatan & Perhatian:\nProduk ini hanya untuk penggunaan kulit luar. Jika terjadi iritasi atau alergi, segera hentikan penggunaan. Simpan di tempat yang sejuk dan kering, hindari paparan sinar matahari langsung.",
+      "price": 176000.0,
+      "category": "SC"
+    }
+  },
+  {
+    "model": "shoppit.product",
+    "pk": 10,
+    "fields": {
+      "name": "Multifunctional HeadCare Apparatus",
+      "slug": "multifunctional-headcare-apparatus",
+      "image": "MHA21x.png",
+      "description": "Alat pijat pintar yang menggabungkan teknologi kesehatan dan kecantikan ini dapat membantu Anda meredakan stress baik secara fisik maupun mental. Gabungan laser kesehatan dan getaran pada titik akupuntur dari MHCA dapat mengurangi migrain, meningkatkan sirkulasi darah kepala dan memberikan kenyamanan pijatan serta meredakan ketegangan otak selama penggunaan.",
+      "price": 2835000.0,
+      "category": "HB"
+    }
+  },
+  {
+    "model": "shoppit.product",
+    "pk": 11,
+    "fields": {
+      "name": "La Beaute Secrete Portable Apparatus",
+      "slug": "la-beaute-secrete-portable-apparatus",
+      "image": "CILVARIS-Apparatus31x.jpg",
+      "description": "Teknologi terkini yang memungkinkan Anda mempunyai klinik kecantikan pribadi. CILVARIS dilengkapi dengan teknologi RF, EMS, CV, dan mode otomatis yang dapat membantu melawan penuaan dini, menyamarkan kerutan, mengencangkan serta menutrisi kulit Anda. Miliki solusi perawatan kulit indah dan sehat dalam satu genggaman, dimanapun dan kapanpun.",
+      "price": 4246000.0,
+      "category": "HB"
+    }
+  },
+  {
+    "model": "shoppit.product",
+    "pk": 12,
+    "fields": {
+      "name": "Tianshi Shutang Calcium Powder",
+      "slug": "tianshi-shutang-calcium-powder",
+      "image": "za9yalcygb2tsxzgoezeqvqrkqc0mxgayfwi5mmg_1_1x.png",
+      "description": "Tianshi Shutang Calcium Powder mengandung lsomaltooligosakarida 1250 mg, Defatted Milk Powder 2500 mg, Zymolitic Bone Calcium Powder 2100 mg, Polydextrose 2000 mg, Pumpkin Powder 1700 mg, Cocoa 200 mg, Calcium Asetate 180 mg, Pemanis Sodium Saccharin 35 mg, Vitamin A 123.6 mcg, Vitamin D 2.7 mcg, Vitamin C 7.6 mg, Vitamin B1 0.19 mg, Vitamin B2 0.15 mg dan Dekstrin 26.93 mg untuk memelihara kesehatan tulang.\nIsi: 10g x 10 bungkus\nAnjuran pakai: Setiap hari 1-2 kali, setiap kali 1 bungkus.\nPeringatan & Perhatian:\nMengandung pemanis buatan Sodium Saccharine. Tidak boleh digunakan untuk anak di bawah 1 tahun.",
+      "price": 365000.0,
+      "category": null
+    }
+  },
+  {
+    "model": "shoppit.product",
+    "pk": 13,
+    "fields": {
+      "name": "TIENSHI Nutrient Calcium Powder",
+      "slug": "tienshi-nutrient-calcium-powder",
+      "image": "nutrient-calsium.png",
+      "description": "Mengandung Isomaltooligosakarida 3600 mg, Defatted Milk Powder 3000 mg, Zymolitic Bone Calcium Powder 2400 mg, Vitamin A 123.6 mcg, Vitamin D 2.7 mcg, Vitamin C 7.6 mg, Lacti Ferrous 2.06 mg, Dextrine 35.21 mg, Non Dairy Creamer 500 mg, Cocoa 200 mg dan Calcium Asetate 180 mg untuk kegunaan memelihara kesehatan tulang.\nIsi: 10g x 10 bungkus\nAnjuran pakai: Setiap hari 1-2 kali, setiap kali 1 bungkus.\nPeringatan & Perhatian:\n- Mengandung pemanis buatan Sodium Saccharine \n- Tidak boleh digunakan untuk anak dibawah 1 tahun",
+      "price": 300000.0,
+      "category": "SP"
+    }
+  },
+  {
+    "model": "shoppit.product",
+    "pk": 14,
+    "fields": {
+      "name": "Tianshi Jiang Zhi Tea",
+      "slug": "tianshi-jiang-zhi-tea",
+      "image": "tea.png",
+      "description": "Tianshi Jiang Zhi Tea mengandung Green Tea 255 mg, Folium Nelumbinis 390 mg, Herba Gynostemma Pentaphylum 390 mg, Radix Polygoni Multitlori 255 mg dan Semen Cassiae 210 mg yang bermanfaat untuk membantu mengurangi lemak darah.\nIsi: 1,5g x 40 bungkus\nAnjuran pakai: 3 kali sehari, tiap kali 1-2 bungkus. Diseduh dengan air panas selama 10 menit lalu diminum. Bisa diseduh kembali berkali-kali.\nPeringatan & Perhatian:\nTidak cocok untuk anak-anak.",
+      "price": 170000.0,
+      "category": "SP"
+    }
+  }
 ]
