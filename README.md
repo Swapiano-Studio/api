@@ -1,106 +1,88 @@
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fdjango&demo-title=Django%20%2B%20Vercel&demo-description=Use%20Django%204%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fdjango-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994241/random/django.png)
+# Panduan Deploy Django ke Render
 
-# Django + Vercel
+Panduan ini menjelaskan langkah-langkah untuk melakukan deploy project Django Anda ke [Render](https://render.com/) dengan benar.
 
-This example shows how to use Django 4 on Vercel with Serverless Functions using the [Python Runtime](https://vercel.com/docs/concepts/functions/serverless-functions/runtimes/python).
-
-## Demo
-
-https://django-template.vercel.app/
-
-## How it Works
-
-Our Django application, `example` is configured as an installed application in `api/settings.py`:
-
-```python
-# api/settings.py
-INSTALLED_APPS = [
-    # ...
-    'example',
-]
-```
-
-We allow "\*.vercel.app" subdomains in `ALLOWED_HOSTS`, in addition to 127.0.0.1:
-
-```python
-# api/settings.py
-ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
-```
-
-The `wsgi` module must use a public variable named `app` to expose the WSGI application:
-
-```python
-# api/wsgi.py
-app = get_wsgi_application()
-```
-
-The corresponding `WSGI_APPLICATION` setting is configured to use the `app` variable from the `api.wsgi` module:
-
-```python
-# api/settings.py
-WSGI_APPLICATION = 'api.wsgi.app'
-```
-
-There is a single view which renders the current time in `example/views.py`:
-
-```python
-# example/views.py
-from datetime import datetime
-
-from django.http import HttpResponse
-
-
-def index(request):
-    now = datetime.now()
-    html = f'''
-    <html>
-        <body>
-            <h1>Hello from Vercel!</h1>
-            <p>The current time is { now }.</p>
-        </body>
-    </html>
-    '''
-    return HttpResponse(html)
-```
-
-This view is exposed a URL through `example/urls.py`:
-
-```python
-# example/urls.py
-from django.urls import path
-
-from example.views import index
-
-
-urlpatterns = [
-    path('', index),
-]
-```
-
-Finally, it's made accessible to the Django server inside `api/urls.py`:
-
-```python
-# api/urls.py
-from django.urls import path, include
-
-urlpatterns = [
-    ...
-    path('', include('example.urls')),
-]
-```
-
-This example uses the Web Server Gateway Interface (WSGI) with Django to enable handling requests on Vercel with Serverless Functions.
-
-## Running Locally
+## 1. Clone Repository
 
 ```bash
-python manage.py runserver
+# Clone project Anda
+git clone https://github.com/username/repo-anda.git
+cd repo-anda/api
 ```
 
-Your Django application is now available at `http://localhost:8000`.
+## 2. Persiapan Project
 
-## One-Click Deploy
+- Pastikan folder `img/` dan semua file static/media sudah di-commit ke repository.
+- Pastikan file `requirements.txt` sudah lengkap.
+- Isi file `build.sh` seperti berikut:
 
-Deploy the example using [Vercel](https://vercel.com?utm_source=github&utm_medium=readme&utm_campaign=vercel-examples):
+```sh
+#!/bin/bash
+set -e
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py loaddata shoppit/fixtures/products.json
+python manage.py collectstatic --noinput
+```
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fexamples%2Ftree%2Fmain%2Fpython%2Fdjango&demo-title=Django%20%2B%20Vercel&demo-description=Use%20Django%204%20on%20Vercel%20with%20Serverless%20Functions%20using%20the%20Python%20Runtime.&demo-url=https%3A%2F%2Fdjango-template.vercel.app%2F&demo-image=https://assets.vercel.com/image/upload/v1669994241/random/django.png)
+- Di `settings.py`, gunakan environment variable untuk data sensitif (sudah disiapkan):
+  - `SECRET_KEY = os.getenv('DJANGO_SECRET_KEY', ...)`
+  - `DEBUG = os.getenv('RENDER', None) is None`
+  - `MEDIA_URL = '/img/'`
+  - `MEDIA_ROOT = os.path.join(BASE_DIR, 'img')`
+
+- Di `api/urls.py`, pastikan ada baris berikut:
+
+```python
+from django.conf import settings
+from django.conf.urls.static import static
+
+urlpatterns = [
+    # ...
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+```
+
+## 3. Buat Web Service Baru di Render
+
+1. Buka [Render Dashboard](https://dashboard.render.com/).
+2. Klik **New Web Service**.
+3. Hubungkan ke repo GitHub/GitLab Anda.
+4. Jika perlu, set root directory ke `api`.
+5. Build command:
+   ```sh
+   ./build.sh
+   ```
+6. Start command:
+   ```sh
+   gunicorn api.wsgi:application
+   ```
+7. Tambahkan environment variable:
+   - `DJANGO_SECRET_KEY` (isi dengan secret key Anda)
+   - `DATABASE_URL` (jika pakai Postgres)
+   - `RENDER=1` (agar DEBUG=False)
+
+## 4. File Static dan Media
+
+- File static akan dikumpulkan ke `staticfiles/` dan dilayani oleh WhiteNoise.
+- File media (img/) harus ada di repo atau di-upload ke server.
+- Untuk production, sebaiknya gunakan cloud storage (S3, dsb) untuk file media.
+
+## 5. Migrasi dan Data Awal
+
+- Script `build.sh` akan menjalankan migrate dan load data awal dari `shoppit/fixtures/products.json`.
+
+## 6. Akses Aplikasi
+
+- Setelah deploy, aplikasi bisa diakses di URL dari Render.
+- Admin: `/admin/`
+- API: `/core/`, `/products/`, dll.
+
+## 7. Troubleshooting
+
+- Jika gambar tidak muncul, pastikan folder `img/` ada di repo dan tidak di `.gitignore`.
+- Cek shell Render: `ls -l img` untuk memastikan file ada.
+- Untuk masalah static/media, cek `settings.py` dan `urls.py`.
+
+---
+
+Untuk info lebih lanjut, lihat [Dokumentasi Render Django](https://render.com/docs/deploy-django) atau tanya di komunitas Render.

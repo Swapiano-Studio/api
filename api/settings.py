@@ -32,6 +32,7 @@ DEBUG = True  # DEBUG=False if running on Render
 
 ALLOWED_HOSTS = [
     'myshop-api-wixh.onrender.com',  # Added for Render deployment
+    '127.0.0.1'
 ]
 
 if os.getenv('RENDER_EXTERNAL_HOSTNAME'):

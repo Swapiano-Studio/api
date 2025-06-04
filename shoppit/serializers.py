@@ -23,7 +23,6 @@ class ProductsSerializer(serializers.Serializer):
             image_path = image_path.replace('\\', '/').lstrip('/')
             if image_path.lower().startswith('img/'):
                 image_path = image_path[4:]
-        # Avoid double 'img/img/'
         final_path = settings.MEDIA_URL + image_path if image_path else ''
         final_path = final_path.replace('/img/img/', '/img/')
         if request:
