@@ -147,8 +147,10 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 # CORS settings (optional, for API)
+REACT_BASE_URL = os.getenv("REACT_BASE_URL", "http://localhost:5173")
+
 CORS_ALLOWED_ORIGINS = [
-    "https://newshop-jsyr.onrender.com"
+    REACT_BASE_URL
 ]
 
 # Logging (optional, for debugging)
@@ -178,8 +180,6 @@ REST_FRAMEWORK = {
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=60)
 }
-
-REACT_BASE_URL = os.getenv("REACT_BASE_URL", "http://localhost:5173")
 
 MEDIA_URL = '/img/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'img')
