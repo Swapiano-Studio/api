@@ -149,9 +149,8 @@ STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 # CORS settings (optional, for API)
 REACT_BASE_URL = os.getenv("REACT_BASE_URL", "http://localhost:5173")
 
-CORS_ALLOWED_ORIGINS = [
-    "https://novacode-tiensapp.onrender.com",
-]
+CORS_ALLOW_ALL_ORIGINS = False
+CORS_ALLOW_CREDENTIALS = True
 
 # Logging (optional, for debugging)
 LOGGING = {
